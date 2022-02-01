@@ -1,4 +1,3 @@
-from http.client import NotConnected
 import cv2
 import mediapipe as mp
 import time
