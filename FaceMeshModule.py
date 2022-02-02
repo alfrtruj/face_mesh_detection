@@ -6,7 +6,7 @@ import time
 class FaceMeshDetector():
 
     def __init__(self, staticMode=False, maxFaces=2, refinelm=False, minDetectionCon=0.5, minTrackCon=0.5):
-
+    
         self.staticMode = staticMode
         self.maxFaces = maxFaces
         self.refinelm = refinelm
@@ -39,15 +39,16 @@ class FaceMeshDetector():
                     ih, iw, ic = img.shape
                     x, y = int(lm.x*iw), int(lm.y*ih)
                     cv2.putText(img, str(id), (x, y), cv2.FONT_HERSHEY_PLAIN,
-                    1, (0, 255, 0), 1)
+                    0.3, (0, 255, 0), 1)
                     #print(id, x, y)
+                    
                     face.append([x, y])
                 faces.append(face) 
         return img, faces
 
     
 def main():
-    cap = cv2.VideoCapture("Videos/2.mp4")
+    cap = cv2.VideoCapture("Videos/6.mp4")
     pTime = 0
     detector = FaceMeshDetector()
     while True:
